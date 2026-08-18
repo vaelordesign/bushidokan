@@ -14,7 +14,7 @@ Bonjour,
 
 Je vous en ai construit un :
 
-https://charlesmartel2506.github.io/bushidokan/
+https://vaelordesign.github.io/bushidokan/
 
 Gratuit, aucune obligation. Ça vous représente bien ?
 

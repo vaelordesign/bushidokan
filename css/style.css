@@ -12,8 +12,8 @@
   --anthracite-doux: #52515C;
   --blanc: #FFFFFF;
 
-  --police-titre: 'Fraunces', Georgia, 'Times New Roman', serif;
-  --police-texte: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --police-titre: 'Shippori Mincho B1', Georgia, 'Times New Roman', serif;
+  --police-texte: 'Zen Kaku Gothic New', 'Segoe UI', system-ui, sans-serif;
 
   --rayon: 12px;
   --ombre: 0 10px 30px rgba(20,29,51,0.14);
@@ -497,3 +497,45 @@ p{ margin: 0 0 12px; }
   @keyframes v3ken{ from{ transform: scale(1.05); } to{ transform: scale(1.13); } }
   .hero-fond img{ animation: v3ken 26s ease-in-out infinite alternate; will-change: transform; }
 }
+
+/* ===== Rafraîchissement du 19 août 2026 — identité japonaise ===== */
+
+/* La progression des ceintures de judo, en signature sous le héros et au pied. */
+.hero::after,
+.pied::before{
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0; right: 0;
+  height: 6px;
+  background: linear-gradient(90deg,
+    #FFFFFF 0 14.28%, #E9C74C 0 28.56%, #E08A2E 0 42.84%,
+    #3E8F4A 0 57.12%, #2B5FAD 0 71.4%, #6B4226 0 85.68%, #16161A 0 100%);
+}
+.hero::after{ bottom: 0; }
+.pied{ position: relative; }
+.pied::before{ top: 0; }
+
+/* Filigrane 柔道 (« judo ») dans le héros — décoratif, masqué aux lecteurs d'écran. */
+.hero-kanji{
+  position: absolute;
+  z-index: 1;
+  right: 2vw;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--police-titre);
+  font-weight: 800;
+  font-size: clamp(7rem, 16vw, 15rem);
+  line-height: .9;
+  color: var(--os);
+  opacity: .10;
+  pointer-events: none;
+  user-select: none;
+  writing-mode: vertical-rl;
+}
+@media (max-width: 700px){
+  .hero-kanji{ font-size: 6rem; right: 0; opacity: .08; }
+}
+
+/* La typographie Shippori respire mieux un peu plus aérée. */
+h1, h2{ letter-spacing: .01em; }

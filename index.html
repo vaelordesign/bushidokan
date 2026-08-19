@@ -12,7 +12,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -68,6 +68,7 @@
       <div class="hero-voile"></div>
       <div data-vfond='{"motif":"grille","couleur":"#B23A2E","couleur2":"#F2EFE6","opacite":0.34,"dessous":false}'></div>
     </div>
+    <span class="hero-kanji" aria-hidden="true">柔道</span>
     <div class="hero-contenu">
       <p class="hero-etiquette">Organisme à but non lucratif · Le Sud-Ouest, Montréal</p>
       <h1>81 membres, un dojo, une discipline transmise depuis près de 20 ans</h1>
@@ -91,12 +92,12 @@
           <span class="stat-label">membres actifs</span>
         </div>
         <div class="stat">
-          <span class="stat-nombre">~20</span>
+          <span class="stat-nombre">19</span>
           <span class="stat-label">ans d'existence</span>
         </div>
         <div class="stat">
-          <span class="stat-nombre">84 %</span>
-          <span class="stat-label">de recommandation</span>
+          <span class="stat-nombre">2</span>
+          <span class="stat-label">fédérations officielles</span>
         </div>
       </div>
     </div>
@@ -251,7 +252,11 @@
     if(el.dataset.v2){return;} el.dataset.v2='1';
     var kids=[].slice.call(el.children);
     if(kids.length<3){return;}
-    kids.forEach(function(k,i){ k.style.animation='v2rise .75s cubic-bezier(.16,1,.3,1) '+(Math.min(i,14)*85)+'ms both'; });
+    kids.forEach(function(k,i){
+      k.style.animation='v2rise .75s cubic-bezier(.16,1,.3,1) '+(Math.min(i,14)*85)+'ms both';
+      /* Libérer l'animation une fois finie : son remplissage « both » bloquerait les survols. */
+      k.addEventListener('animationend', function(){ k.style.animation=''; }, {once:true});
+    });
   }
   if('IntersectionObserver' in window){
     var ioC=new IntersectionObserver(function(es){es.forEach(function(e){
